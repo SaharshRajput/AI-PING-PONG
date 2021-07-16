@@ -35,8 +35,18 @@ function modelLoaded()
 {
   console.log("Model is loaded");
 }
-function gotPoses()
+rightWristX="";
+rightWristY="";
+score="";
+function gotPoses(results)
 {
+  if(results.length>0)
+  {
+    console.log(results);
+rightWristX=results[0].pose.rightWrist.x;
+rightWristY=results[0].pose.rightWrist.y;
+score=results[0].pose.keypoints[0].score;
+  }
 
 }
 
@@ -53,8 +63,12 @@ function draw(){
  fill("black");
  stroke("black");
  rect(0,0,20,700);
- 
-   //funtion paddleInCanvas call 
+ if(score>0.2)
+{
+fill("#ff0000");
+stroke("#ff0000");
+circle(rightWristX,rightWristY,20);
+} //funtion paddleInCanvas call 
    paddleInCanvas();
  
    //left paddle
