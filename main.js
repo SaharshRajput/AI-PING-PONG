@@ -192,3 +192,33 @@ function paddleInCanvas(){
     mouseY =0;
   }  
 }
+
+
+
+
+GameStatus="";
+function startGame()
+{
+GameStatus="start";
+document.getElementById("status").innerHTML="Game is loading";
+if(GameStatus=="start")
+{
+  background(0); 
+
+ image(video,0,0,700,600);
+
+ fill("black");
+ stroke("black");
+ rect(680,0,20,700);
+
+ fill("black");
+ stroke("black");
+ rect(0,0,20,700);
+ if(score>0.2)
+{
+fill("#ff0000");
+stroke("#ff0000");
+circle(rightWristX,rightWristY,20);
+}
+}
+}
